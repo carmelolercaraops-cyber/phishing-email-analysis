@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+*.log
+.env
+.idea/
+.vscode/
+
+# Local analysis artifacts
+*.tmp
+*.bak
+*.swp
+*.swp

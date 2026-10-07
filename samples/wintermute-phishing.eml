@@ -1,0 +1,353 @@
+Delivered-To: k***[@]scallop[.]io
+Received: by 2002:a05:6358:1781:b0:1cb:5ec:26e9 with SMTP id y1csp1446911rwm;
+        Sat, 15 Feb 2025 01:01:00 -0800 (PST)
+X-Forwarded-Encrypted: i=5; AJvYcCW59NBnWXSbDA6kkTHi9DnrmKt/8pC0rwExF+uMbfIdODTbJaIUpGE4rk8+rTivZEzVsfNxWw==@scallop[.]io
+X-Received: by 2002:a05:6870:530e:b0:29d:c9f6:efdc with SMTP id 586e51a60fabf-2bc9906d76bmr1312790fac.17.1739610060496;
+        Sat, 15 Feb 2025 01:01:00 -0800 (PST)
+ARC-Seal: i=4; a=rsa-sha256; t=1739610060; cv=pass;
+        d=google[.]com; s=arc-20240605;
+        b=T9+2bqZCcVBf0p1EMcXVXtg8kNLBdjhmKHwqDTxCRIy6xy01qB7zke9ZoFkzcsU9tk
+         Vb2J3sqJygWkdI5xu6rjqlBwo0kD+C3HkpDJIylefQ9W5WDp5cz27kmAZlpPtb5nFqTca
+         9M7TRkY5vL3CCvOJ72nF3yH6HD/m+fiFScN1+O9Rv2kqlh127TcnW+5xtOvIWI834TBc
+         Ng+QFkpnEDaLm38poP0ptj2wabxW53r1yLY0Wt7ibHoWu8a+AfqrkNJHOHKwYlShlLqQ
+         s2v/bApcVQQFw/ZU4eHjiQjE/W7lfN4x2FywS0wN7eH/xyd3lPfam8cAi3sif1YqhC8m
+         0O2Q==
+ARC-Message-Signature: i=4; a=rsa-sha256; c=relaxed/relaxed; d=google[.]com; s=arc-20240605;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:content-transfer-encoding:sender
+         :mime-version:message-id:cc:from:date:subject:to;
+        bh=cv2qpvOLsKwx8THO872wj8Wi+oKZ1pmwd+HQE68I/08=;
+        fh=4awja7l49Xllgr8cwcu31NWVqIf2TObmQH8eS3f/wOk=;
+        b=fz3H/MEQ7R1GyOWbzrGTYVEfNWo4vLwxEeS0nEq6Jcbv2Uvr1oFTG7zWyPPDmmbSWx
+         3I1dNwwCwqVU6zWrY9fHnjHerbqZXJmwaPS5EY5ptPdeaJV2lbJjIk0mYPxjZCD+oMYM
+         x+s6PdBdd1XfZ0KpPtZHIeVWWldNHmfWGY+bTfePyXa1Dl9ArTWewW5YXHD75k/FWd33
+         0p/fX75SWiqr3A2RnlYq9f2zvevZB2nYSnacKraaDeT/nc5CmkjZD3CPl4Dxb9vtaIee
+         64pXPgbMqf86HxG1tQtU6E2tqKwvbIlrcjC+84jTlKhok2e3i0gvDQbetutrF8w5R9m4
+         ZCfA==;
+        dara=google[.]com
+ARC-Authentication-Results: i=4; mx.google.com;
+       arc=pass (i=3 spf=pass spfdomain=srv1862[.]main-hosting[.]eu);
+       spf=pass (google.com: domain of bd+bncbdbpptog3ahbbs5pyg6qmgqeutvorsa@scallop[.]io designates 209[.]85[.]220[.]69 as permitted sender) smtp.mailfrom=bd+bncBDBPPTOG3AHBBS5PYG6QMGQEUTVORSA@scallop[.]io;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=wintermute[.]com;
+       dara=fail header.i=@scallop[.]io
+Return-Path: <bd+bncBDBPPTOG3AHBBS5PYG6QMGQEUTVORSA@scallop[.]io>
+Received: from mail-sor-f69.google[.]com (mail-sor-f69.google[.]com. [209[.]85[.]220[.]69])
+        by mx.google[.]com with SMTPS id 586e51a60fabf-2b95481a1b0sor1662113fac.2.2025.02.15.01.01.00
+        for <k***[@]scallop[.]io>
+        (Google Transport Security);
+        Sat, 15 Feb 2025 01:01:00 -0800 (PST)
+Received-SPF: pass (google.com: domain of bd+bncbdbpptog3ahbbs5pyg6qmgqeutvorsa@scallop[.]io designates 209[.]85[.]220[.]69 as permitted sender) client-ip=209[.]85[.]220[.]69;
+Authentication-Results: mx.google.com;
+       arc=pass (i=3 spf=pass spfdomain=srv1862[.]main-hosting[.]eu);
+       spf=pass (google.com: domain of bd+bncbdbpptog3ahbbs5pyg6qmgqeutvorsa@scallop[.]io designates 209[.]85[.]220[.]69 as permitted sender) smtp.mailfrom=bd+bncBDBPPTOG3AHBBS5PYG6QMGQEUTVORSA@scallop[.]io;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=wintermute[.]com;
+       dara=fail header.i=@scallop[.]io
+ARC-Seal: i=3; a=rsa-sha256; t=1739610060; cv=pass;
+        d=google[.]com; s=arc-20240605;
+        b=GYIhgOJ06yZ6TuDms/mmPWpubN+jRhhXv6vTuH3+xs9pDzHleI2mkL1RBRCblyP/+z
+         LsFMSAreMfhwWAU0wXTPhLKhfntQY707mEhw6devEMIYuqA+SrRyTrUtceKlQnUMh9uK
+         VLbZM6MRjQzOnioG7iM0ABZq/Mb2sLJyNYWzZe+2E6NfXnEBM4ADiygDcrOOkKQ4XLFd
+         5pMsdhpIxEYUMQDgwStfu0KQq0L+1/D0VTnlOb5it4iC7pfosB586qGq5q3OWpdGx7Fg
+         jd+W98bcnytrxpDKyqcBziC3I+QE7gbx0p41gZATZFa+jZlE5fGKelBwwyL8VjTldphk
+         BfUQ==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google[.]com; s=arc-20240605;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:content-transfer-encoding:sender
+         :mime-version:message-id:cc:from:date:subject:to;
+        bh=cv2qpvOLsKwx8THO872wj8Wi+oKZ1pmwd+HQE68I/08=;
+        fh=4awja7l49Xllgr8cwcu31NWVqIf2TObmQH8eS3f/wOk=;
+        b=c8JD7rEwKNl2zEXv6194p4ReNQQgx3VocmuiZIYzEAfHXIKoX7VdTyXvkOtNWk66VM
+         pll7rYwvc5w+YnsiyOsXKtv34XHJUwJ6M1o4jT+F0xpVFjkMkQdxz3EdQ946RUw0x8pb
+         zjPO9TS1X1o3s1odH5MP1VJeQUJ/OcsEVgHHGEsP0LDMKiINpi0zZxpe5rZQ76+YqNky
+         dCSbsoXhg6OrcETthFdoIHE+wmAI266YEyyUB545Ulgtx+SRiFgq8iCt1d4voXFLqa00
+         huK8J4s2mI0/VpV1A194HGwEQpXMJnm9hAg02R8dlYqsLi/MhwABrDAqGN4vO4E0kHHE
+         ZZ+g==;
+        darn=scallop[.]io
+ARC-Authentication-Results: i=3; mx.google.com;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of u********[@]srv1862[.]main-hosting[.]eu designates 23[.]83[.]222[.]67 as permitted sender) smtp.mailfrom=u********@srv1862[.]main-hosting[.]eu;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=wintermute[.]com
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100[.]net; s=20230601; t=1739610060; x=1740214860;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :content-transfer-encoding:x-original-authentication-results
+         :x-original-sender:sender:mime-version:message-id:cc:from:date
+         :subject:to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cv2qpvOLsKwx8THO872wj8Wi+oKZ1pmwd+HQE68I/08=;
+        b=Key0dFMvr5DjD3TUhvFTISjnH4qplJXDhUlMl8jLWCfmiYitcb8jRjcLEgMw3+Mjhn
+         rgPOqgZWO6u7LBBuiv48LsHr55sxCARQJqOPbrE2rlZouiNIK8o3/i13gGYDzVfyXiTW
+         zpx+7EuOr12zINZvN2CPvDYGeadvkIyajM2k1btACgJMUbLPaHGlgJ0yVn4Wmql3mNFJ
+         wjqw6NNDUucwKnWh76TuoYCPMAsZVeKaM5X1o6G0HFZKeHJfjs2ZJBpAYbBrVyA6Lb
+         5PfgJOSPHoHlKGR4VMGEEd/mdB83hWY9ScXyVDOOljgxli6fWvZ1d5ou1LJ3LPYqPjXn
+         SHnQ==
+X-Forwarded-Encrypted: i=3; AJvYcCXqdvVFQudNKbBaPpmpXwNmPg+USnKjeVNvt/RWblaCUKUu9fwNqFzId8uNQ3bTIQRVkbcn3A==@scallop[.]io
+X-Gm-Message-State: AOJu0YyRDRTA2ZtyyF8M+GGmzM+6uHp+IpPp8svxwdN5V5NyxARJFJC1
+	78w3l+I4YTkr1VcUOmfpIGouFlUTYiEjTLl24/VEr0xn9FaAEdrCFspBy/5HcJu57PAeFLvxnQ=
+	=
+X-Google-Smtp-Source: AGHT+IG4yWfPOE15Me+/5kx8EpJzCeX2IL3uzFNWllOsdsGWh66J/XE/iA0LB3aDnudrfJZQaN9xEg==
+X-Received: by 2002:a05:6870:aa86:b0:2b8:5a6a:6f5f with SMTP id 586e51a60fabf-2b8fac87838mr5855390fac.19.1739610059944;
+        Sat, 15 Feb 2025 01:00:59 -0800 (PST)
+X-BeenThere: bd[@]scallop[.]io; h=Adn5yVHkDAFJfrVrha7R3L1seDlhLF9aCgulnlAlKguthgztdA==
+Received: by 2002:a05:6870:1710:b0:2b8:aad4:83d with SMTP id
+ 586e51a60fabf-2b8f7b4ce98ls704123fac.0.-pod-prod-00-us; Sat, 15 Feb 2025
+ 01:00:59 -0800 (PST)
+X-Received: by 2002:a05:6871:7509:b0:2b8:8d81:4658 with SMTP id 586e51a60fabf-2b8fa90c48cmr6056341fac.2.1739610059172;
+        Sat, 15 Feb 2025 01:00:59 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1739610059; cv=pass;
+        d=google[.]com; s=arc-20240605;
+        b=LDrz9J36RlNNUfw5up2aWE9lEMKgEjZu5acxNxRjdnrhAO/Ch1D5aHvEUSAlEPP4Ra
+         +382wVS1xYev10v1I2xeHmU7hYtJoAgHKolD0Ene4bIb69z2KFCqdcLWAvUweea8pIHA
+         QcGSbb6KdpTIqF7SlZ4Zk178yDRaeJS2X3k5ckKBevWczchjN+5p2FZbBzvccqp00jqw
+         giY0hNb2eZp7FE5EklKq+k0LQa7ddfzm6xDMWA7buQut7DNgkB+76lZSsbNX9YmwN+Fk
+         kEDRDvybu6UPbT9TAHTTHZo0jG/JV/pF0T0TyUoEuVItZNXldS7/qyIePhpGhgCrzJo+
+         01MQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google[.]com; s=arc-20240605;
+        h=sender:mime-version:message-id:cc:from:date:subject:to;
+        bh=FRmIbcW2XqJfrfkn8FDWR6UZ3jSBz9jLMB1gOoLuO34=;
+        fh=lkIg7CB+13FuP7Fz6pR9OaERJa72gJ59vSk6oNBSd7s=;
+        b=Qi0WV3FaVcKk63Zl6T6viI7uYDp1kmHb0IgpqeLYQv3YjKTFxvUAV/qGev7qpR4D8P
+         zK9lT3N+PF/5/WmkUesa/5V+g9/2uwb3IcuS+yAErilGxPAFk1fwsFIn9RZiupwDxZ7z
+         4ag0iD50ZVq5GqtO0uXbuayz1zDOKZo4N6PDGF2skepZJUuKc4VveKpmqhz5Qvz2DASM
+         iFt2DTDmTYkD53naGtYbtPIqWa/1J0tkBfJ0lkMPGp6GZsLhPAj0QGQ9UTMQaCs3kCUC
+         DFhE892bOtWOFh8A/uwKljO9ASbDX4Hdic0pqZemMSW0IdwmF3hWH6PhkoywuJ/fWD2/
+         6MQg==;
+        dara=google[.]com
+ARC-Authentication-Results: i=2; mx.google.com;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of u********[@]srv1862[.]main-hosting[.]eu designates 23[.]83[.]222[.]67 as permitted sender) smtp.mailfrom=u********@srv1862[.]main-hosting[.]eu;
+       dmarc=fail (p=NONE) header.from=wintermute[.]com
+Received: from gerbil[.]ash[.]relay[.]mailchannels[.]net (gerbil[.]ash[.]relay[.]mailchannels[.]net. [23[.]83[.]222[.]67])
+        by mx.google[.]com with ESMTPS id 586e51a60fabf-2b9548c810fsi4127559fac.61.2025.02.15.01.00.58
+        for <bd[@]scallop[.]io>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 15 Feb 2025 01:00:59 -0800 (PST)
+Received-SPF: pass (google.com: domain of u********[@]srv1862[.]main-hosting[.]eu designates 23[.]83[.]222[.]67 as permitted sender) client-ip=23[.]83[.]222[.]67;
+X-Sender-Id: hostingershared|x-authuser|u********[@]srv1862[.]main-hosting[.]eu
+Received: from relay[.]mailchannels[.]net (localhost [127[.]0[.]0[.]1])
+	by relay[.]mailchannels[.]net (Postfix) with ESMTP id C653D7825F6
+	for <bd[@]scallop[.]io>; Sat, 15 Feb 2025 09:00:57 +0000 (UTC)
+Received: from srv1862[.]main-hosting[.]eu (trex-2[.]trex[.]outbound[.]svc[.]cluster[.]local [100[.]97[.]28[.]83])
+	(Authenticated sender: hostingershared)
+	by relay[.]mailchannels[.]net (Postfix) with ESMTPA id 1D9BF78263F
+	for <bd[@]scallop[.]io>; Sat, 15 Feb 2025 09:00:56 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels[.]net; t=1739610057; a=rsa-sha256;
+	cv=none;
+	b=kZNaXQS+1eFtvP0X3Um04VKoVyk33Oldqpg7HkeY2Nl0xAaWgNXeFW5vi3yamrYHs82fPk
+	ca9tmAk4+0qlQzXOiLkDjZFb2ArCvfx3aSnvec1vdROhkKwYe/w+02tLH1keKDIw795zJN
+	CIfODAjcHyLlSeLfh+LofmLDr1G50Si53r1RnbrKuCeMSbSkALJQBAFNa4IXAPX6qxqy+9
+	b2z/8wXaOITJQJRa7MJc8GRAVlL8milVb2Lo9pBZm5gddy40n55Ow2/35+uVLwCsEDQLhK
+	oRc2JzR5EA7WsPW60RRs/lYYM0Vo4jAwjjc6hC/KIFz+OHuAcGBOZ6FTiACPIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels[.]net;
+	s=arc-2022; t=1739610057;
+	h=from:from:sender:sender:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type; bh=FRmIbcW2XqJfrfkn8FDWR6UZ3jSBz9jLMB1gOoLuO34=;
+	b=hjlSbz21my0bIRDxKkvdmEZCD/lkCJVpPvB1BLfvXRV1fpuUgsqkJ6whiYtxUm2qJXuO0p
+	c1IZRFqu52kVdDyDMzSF4a1FNOq+GeyXASQ4p2U+7ZSoDz1lLVTA1co74d6EkETE6ivPXE
+	buAEgkvWBYx8IRQ+x8jO3k2p3J4bjiLB3+00jchKVxGsndC3iLzwUt5QRl6JTDL2iabeuX
+	oI+tEqyeOyc9OgITE4lQmdRPFNgrEAGk+NMh2Rn1dusFV7uVuXuetuo/Y4SLSP0l7DNs9Z
+	/k8qAtkV2XFxyfnoV1Xs3Zf8ZnkTpREvoWNQg5bVIL3KUY5LFR5oH2dFF/CYQw==
+ARC-Authentication-Results: i=1;
+	rspamd-5fcc9c9dd-hgps5;
+	auth=pass smtp.auth=hostingershared
+ smtp.mailfrom=u********[@]srv1862[.]main-hosting[.]eu
+X-Sender-Id: hostingershared|x-authuser|u********[@]srv1862[.]main-hosting[.]eu
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: hostingershared|x-authuser|u********[@]srv1862[.]main-hosting[.]eu
+X-MailChannels-Auth-Id: hostingershared
+X-Stupid-Dime: 5f01162144dea48a_1739610057597_1585172735
+X-MC-Loop-Signature: 1739610057597:1927820399
+X-MC-Ingress-Time: 1739610057596
+Received: from srv1862[.]main-hosting[.]eu ([UNAVAILABLE]. [77[.]37[.]35[.]56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100[.]97[.]28[.]83 (trex/7.0.2);
+	Sat, 15 Feb 2025 09:00:57 +0000
+To: bd[@]scallop[.]io
+Subject: Wintermute & Scallop.io
+X-PHP-Script: wintermute[.]business/Winter/mailer.php for 146[.]70[.]104[.]28
+X-PHP-Filename: /home/u160482217/domains/wintermute[.]business/public_html/Winter/mailer.php REMOTE_ADDR: 146[.]70[.]104[.]28
+X-PHP-Originating-Script: 160482217:PHPMailer.php
+Date: Sat, 15 Feb 2025 09:00:55 +0000
+From: Wintermute Trading <partnerships[@]wintermute[.]com>
+Cc: partnerships[@]wintermute[.]business
+Message-ID: <qYviKHDzHN0iJrQQAerZ163pmWind8ghwgMabuBMSBM@wintermute[.]business>
+X-Mailer: PHPMailer 6.0.3 (hxxps://github[.]com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/html; charset="UTF-8"
+Sender: u********[@]srv1862[.]main-hosting[.]eu
+X-AuthUser: u********[@]srv1862[.]main-hosting[.]eu
+X-Original-Sender: partnerships[@]wintermute[.]com
+X-Original-Authentication-Results: mx.google[.]com;       arc=pass (i=1);
+       spf=pass (google.com: domain of u********[@]srv1862[.]main-hosting[.]eu
+ designates 23[.]83[.]222[.]67 as permitted sender) smtp.mailfrom=u********[@]srv1862[.]main-hosting[.]eu;
+       dmarc=fail (p=NONE) header.from=wintermute[.]com
+Content-Transfer-Encoding: quoted-printable
+Precedence: list
+Mailing-list: list bd[@]scallop[.]io; contact bd+owners[@]scallop[.]io
+List-ID: <bd[.]scallop[.]io>
+X-Spam-Checked-In-Group: bd[@]scallop[.]io
+X-Google-Group-Id: 354619170879
+List-Post: <hxxps://groups[.]google[.]com/a/scallop[.]io/group/bd/post>, <mailto:bd[@]scallop[.]io>
+List-Help: <hxxps://support[.]google[.]com/a/scallop[.]io/bin/topic.py?topic=25838>, <mailto:bd+help[@]scallop[.]io>
+List-Archive: <hxxps://groups[.]google[.]com/a/scallop[.]io/group/bd/>
+List-Subscribe: <hxxps://groups[.]google[.]com/a/scallop[.]io/group/bd/subscribe>, <mailto:bd+subscribe[@]scallop[.]io>
+List-Unsubscribe: <mailto:googlegroups-manage+354619170879+unsubscribe[@]googlegroups[.]com>,
+ <hxxps://groups[.]google[.]com/a/scallop[.]io/group/bd/subscribe>
+
+
+    <!DOCTYPE html>
+    <html lang=3D"en">
+    <head>
+        <style>
+        
+             body {
+            font-family: Arial, sans-serif;
+            background-color: #e0e0e0;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            text-align: left;
+        }
+        .page-container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 600px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            margin: auto;
+        }
+        .email-container {
+            background: #f9f9f9;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+               .header {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+       .logo {
+            max-width: 150px;
+            height: auto;
+        }
+        .content {
+                padding: 20px;
+                color: #333333;
+                text-align: left;
+            font-size: 14px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #3E5FFF;
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .signature {
+                margin-top: 30px;
+                font-size: 14px;
+                line-height: 1.6;
+                color: #333333;
+                text-align: left;
+            }
+            .signature a {
+                color: #0073e6;
+                text-decoration: none;
+            }
+            .social-icons img {
+                vertical-align: middle;
+                margin-right: 10px;
+            }
+        .footer {
+            background-color: #f4f4f4;
+            margin-top: 30px;
+            padding: 10px;
+            text-align: center;
+            font-size: 12px;
+            color: #B5B6B9;
+        }
+        .footer a {
+            color: #888888;
+            text-decoration: none;
+            text-align: center;
+        }
+    </style>
+    </head>
+    <body>
+         <div class=3D"page-container">
+        <div class=3D"email-container">
+        <div class=3D"header">
+            <img class=3D"logo" src=3D"hxxps://iili[.]io/2DJcBMF[.]jpg" alt=3D"=
+Wintermute Logo" style=3D"width: 150px; height: auto;">
+            <div class=3D"content">
+                <h1>Wintermute & Scallop.io</h1>
+                <p><p>Dear Team,</p><p>Thank you for connecting with my col=
+league earlier and for sharing your email. I am Louis from Wintermute Tradi=
+ng, a leading market-maker in the digital asset space. We would like to for=
+mally propose a strategic partnership with Scallop.io, designed to support =
+your upcoming listings and boost market presence through our tailored liqui=
+dity solutions and strong exchange relationships.</p><p>We believe this col=
+laboration will bring significant value to Scallop, and we are eager to exp=
+lore how our expertise can drive growth and success. For more seamless comm=
+unication, I have created a dedicated Telegram group for our teams: <a href=
+=3D"hxxps://t[.]me/+Jn3tuBa5uX5jNDAx" rel=3D"nofollow">hxxps://t[.]me/+Jn3tuBa5=
+uX5jNDAx</a>.&nbsp;</p><p>Thank you for considering this opportunity, and I=
+ look forward to discussing the details further.</p><p>Best regards,</p></p=
+
+                <div class=3D"signature">
+                    <strong>Wintermute representative </strong><br>
+             <strong> Business Development Officer of Wintermute Trading</s=
+trong><br>
+                    <a href=3D"hxxp://wintermute[.]com">Wintermute.com</a><br=
+>
+                    <div class=3D"social-icons">
+                        <a href=3D"hxxps://t[.]me/[REDACTED]"><img src=3D"ht=
+tps://img[.]icons8[.]com/ios-filled/50/000000/telegram-app[.]png" alt=3D"Telegram=
+" width=3D"24"></a>
+                              </div>
+                              </div>
+                </div>
+            </div>          
+<div class=3D"footer">
+    <p>&copy; 2025 Wintermute. All rights reserved.</p>
+    <p><a href=3D"hxxps://upbit[.]com" style=3D"color: #888888; text-decorati=
+on: none;">Visit our website</a></p>
+</div>
+
+            </div>
+        </div>
+    </body>
+    </html>
+   
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Business Development Group&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an=
+ e-mail to <a href=3D"mailto:bd+unsubscribe[@]scallop[.]io">bd+unsubscribe[@]scallop[.]io</a>.<br />
+To view this discussion visit <a href=3D"hxxps://groups[.]google[.]com/a/scallop[.]io/d/msgid/bd/qYviKHDzHN0iJrQQAerZ163pmWind8ghwgMabuBMSBM%40wintermute[.]business?utm_medium=3Demail&utm_source=3Dfooter">hxxps://groups[.]google[.]com/a/scallop[.]io/d/msgid/bd/qYviKHDzHN0iJrQQAerZ163pmWind8ghwgMabuBMSBM%40wintermute[.]business</a>.<br />
